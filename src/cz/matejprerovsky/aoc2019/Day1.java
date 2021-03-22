@@ -3,8 +3,8 @@ package cz.matejprerovsky.aoc2019;
 import java.util.stream.Stream;
 
 public class Day1 extends Day{
-    public Day1(int number) {
-        super(number);
+    public Day1() {
+        super(1);
     }
 
     @Override
