@@ -8,20 +8,20 @@ public class Day1 extends Day{
     }
 
     @Override
-    public String puzzle1() {
+    public String part1() {
         return String.valueOf(
                 Stream.of(lines)
-                        .mapToInt(x -> Integer.parseInt(x))
+                        .mapToInt(Integer::parseInt)
                         .map(x -> (x/3)-2)
                         .sum());
     }
 
     @Override
-    public String puzzle2() {
+    public String part2() {
         return String.valueOf(
                 Stream.of(lines)
-                        .mapToInt(x -> Integer.parseInt(x))
-                        .map(x -> fuelNeeded(x))
+                        .mapToInt(Integer::parseInt)
+                        .map(this::fuelNeeded)
                         .sum());
     }
 
