@@ -6,26 +6,33 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Day2 extends Day{
+
+    private final int[] mem;
+
     public Day2() {
         super(2);
+        mem = Arrays.stream((lines[0].split(",")))
+                .mapToInt(Integer::parseInt)
+                .toArray();
     }
+
+    private int[] getNums(){
+        return mem.clone();
+    }
+
 
     @Override
     public String part1() {
-        int[] nums = Arrays.stream((lines[0].split(",")))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] nums = this.getNums();
+
         // replacement
         nums[1] = 12;
         nums[2] = 2;
 
-        return String.valueOf(compute(nums));
+        return String.valueOf(compute(nums)[0]);
     }
 
-    private void printState(int[] nums){
-        System.out.println(Arrays.toString(nums));
-    }
-    private int compute(int[] nums){
+    private int[] compute(int[] nums){
         for(int ip = 0; ip<nums.length; ip++){
             switch(nums[ip])
             {
@@ -40,23 +47,21 @@ public class Day2 extends Day{
                     break;
 
                 case 99:
-                    return nums[0];
+                    return nums;
 
             }
 
         }
-        return 0;
+        return null;
     }
     @Override
     public String part2() {
         for(int noun = 0; noun<100; noun++){
             for(int verb = 0; verb<100; verb++){
-                int[] nums = Arrays.stream((lines[0].split(",")))
-                        .mapToInt(Integer::parseInt)
-                        .toArray();
+                int[] nums = this.getNums();
                 nums[1] = noun;
                 nums[2] = verb;
-                if(compute(nums) == 19690720)
+                if(compute(nums)[0] == 19690720)
                     return String.valueOf((100*noun) + verb);
 
             }

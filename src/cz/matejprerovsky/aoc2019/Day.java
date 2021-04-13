@@ -14,8 +14,9 @@ public abstract class Day {
 
     public abstract String part2();
     public void solve(){
-        System.out.println("Part 1: " + this.part1());
-        System.out.println("Part 2: " + this.part2());
+        long startTime = System.currentTimeMillis();
+        System.out.println("Part 1: " + this.part1() + " (" + (System.currentTimeMillis()-startTime) + " ms)");
+        System.out.println("Part 2: " + this.part2() + " (" + (System.currentTimeMillis()-startTime) + " ms)");
     }
     private String[] loadInput(int number){
         try {
