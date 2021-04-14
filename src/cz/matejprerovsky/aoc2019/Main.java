@@ -10,6 +10,7 @@ public class Main {
 //      new Day2().solve();
 //      new Day3().solve();
 //      new Day4().solve();
-        new Day5().solve();
+//      new Day5().solve();
+      new Day6().solve();
     }
 }
