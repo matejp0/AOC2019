@@ -66,7 +66,7 @@ public class Day5 extends Day{
                 /** output */
                 case 4:
                     output = nums[nums[ip+1]];
-                    System.out.println("[OUTPUT]: " + output);
+//                    System.out.println("[OUTPUT]: " + output);
                     ip+=2;
 
                     break;
