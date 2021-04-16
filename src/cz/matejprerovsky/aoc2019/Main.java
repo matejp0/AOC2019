@@ -1,8 +1,5 @@
 package cz.matejprerovsky.aoc2019;
 
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -11,6 +8,7 @@ public class Main {
 //      new Day3().solve();
 //      new Day4().solve();
 //      new Day5().solve();
-      new Day6().solve();
+//      new Day6().solve();
+        new Day7().solve();
     }
 }
