@@ -25,7 +25,6 @@ public class Day8 extends Day{
             List<Integer> layer = list.subList(i, i+SIZE);
 
             int countOfZeros = (int) layer.stream().filter(x -> x == 0).count();
-
             if(countOfZeros < fewestZeros) {
                 fewestZeros = countOfZeros;
                 result = (int) layer.stream().filter(x -> x == 1).count()
@@ -38,19 +37,6 @@ public class Day8 extends Day{
 
     @Override
     public String part2() {
-        return getFinalMessage();
-    }
-
-    private int getColorAtIndex(int layerNumber, int index){
-        List<Integer> layer = list.subList(SIZE*layerNumber, (SIZE*(layerNumber+1)));
-        int color = layer.get(index);
-        if(color == 2) {
-            color = getColorAtIndex(layerNumber + 1, index);
-        }
-
-        return color;
-    }
-    private String getFinalMessage(){
         StringBuilder message = new StringBuilder();
         message.append("\n");
         for(int index = 0; index<SIZE; index++){
@@ -59,5 +45,16 @@ public class Day8 extends Day{
                 message.append("\n");
         }
         return message.toString();
+    }
+
+    private int getColorAtIndex(int layerNumber, int index){
+        List<Integer> layer = list.subList(SIZE*layerNumber, (SIZE*(layerNumber+1)));
+        int color = layer.get(index);
+
+        if(color == 2) {
+            color = getColorAtIndex(layerNumber + 1, index);
+        }
+
+        return color;
     }
 }
