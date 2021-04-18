@@ -1,6 +1,5 @@
 package cz.matejprerovsky.aoc2019;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class Day9 extends Day {
 
-    private Map<Integer, Long> mem;
+    private final Map<Integer, Long> mem;
 
 
     public Day9() {
@@ -71,12 +70,12 @@ public class Day9 extends Day {
                 for(int i = 0; i < 3; i++){
                     try{
                         values[i] = ((modes[i] == 1) ? memory.get(ip + 1 + i) : memory.get(Math.toIntExact(memory.get(ip + 1 + i) + ((modes[i] == 2) ? base : 0))));
-                    } catch (Exception e){}
+                    } catch (Exception ignored){}
 
 
                     try{
                         addresses[i] = Math.toIntExact(memory.get(ip + 1 + i) + ((modes[i] == 2) ? base : 0));
-                    } catch (Exception e){}
+                    } catch (Exception ignored){}
 
                 }
                 switch (opcode) {
